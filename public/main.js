@@ -31,13 +31,25 @@
 //for each loop referencing tempature for a zip
 //forEach loop referencing the wind speed for a zip
 //a forEach loop referencing percipitation for a zip
+let weather = document.querySelector('.weather-conditions')
 
-const conditions = (humidity, temp) => {
+const conditions = (humidity, temp, weth, usa) => {
 
-  let weather = document.querySelector('.weather-conditions')
-  let conditionsLI = document.createElement('li')
-  conditionsLI.textContent = `humidity ${humidity} % ${temp}`
-  weather.appendChild(conditionsLI)
+  let humidityLI = document.createElement('li')
+  humidityLI.textContent = `Humidity: ${humidity}%`
+  weather.appendChild(humidityLI)
+
+  let tempLI = document.createElement('li')
+  tempLI.textContent = `Temperature: ${temp} F`
+  weather.appendChild(tempLI)
+
+  let rainLI = document.createElement('li')
+  rainLI.textContent = `Cloud Conditions: ${weth}`
+  weather.appendChild(rainLI)
+
+  let countryLI = document.createElement('li')
+  countryLI.textContent = `Country: ${usa}`
+  weather.appendChild(countryLI)
 }
 
 
@@ -60,7 +72,10 @@ const main = () => {
         json => {
           const humidity = json.main.humidity
           const temp = json.main.temp
-          conditions(humidity, temp)
+          const usa = json.sys.country
+          const weth = json.weather[0].description
+          weather.textContent = ''
+          conditions(humidity, temp, weth, usa)
           console.log(json)
         }
       )

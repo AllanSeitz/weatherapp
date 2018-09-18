@@ -3,10 +3,53 @@ html {
 }
 
 body {
+  background-image: url(http://www.animatedimages.org/data/media/148/animated-weather-image-0084.gif);
+  background-color: rgb(240, 179, 88);
+  background-size: cover;
+  background-repeat: no-repeat;
   margin: 0;
   min-height: 100%;
-  font: 16px / 1 sans-serif;
+  font: 36px / 1 sans-serif;
+}
+header {
+  margin-top: 38%;
+  text-shadow: -1px 0 black, 1px 0 black, 1px 0 black, -1px 0 black;
+  color: red;
+  text-align: center;
+}
+span {
+  text-align: center;
+}
+input {
+  font-size: 25px;
+  height: 25px;
+  width: 150px;
+}
+ul {
+  
+  margin: 0 120px 0 120px;
+  display: flex;
+  align-items: center;
+  line-height: 50px;
+  flex-direction: column;
 }
 li {
+  font-size: 45px;
+  text-shadow: -1px 0 black, 1px 0 black, 1px 0 black, -1px 0 black;
+  color: rgba(255, 255, 255, 0.904);
+  text-decoration: underline;
+  padding-top: 35px;
   list-style: none;
+}
+button {
+  height: 25px;
+  width: 50px;
+}
+.lightning {
+  width: 30%;
+  animation: updown 2s infinite alternate;
+}
+@keyframes updown {
+  0% {margin-top: -100%;}
+  100% {margin-bottom: -75%;};
 }
