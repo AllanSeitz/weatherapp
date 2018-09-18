@@ -7,3 +7,6 @@ body {
   min-height: 100%;
   font: 16px / 1 sans-serif;
 }
+li {
+  list-style: none;
+}
