@@ -1,10 +1,30 @@
+//define the class
+//define the constructor
+//define the this
+//make my function
+//call my function
+
+
+
 let weather = document.querySelector('.weather-conditions')
 
-const addCondition = (parent, className, word) => {
-  let _newLi = document.createElement('li')
-  _newLi.classList.add(className)
-  _newLi.textContent = word
-  parent.appendChild(_newLi)
+class WeatherList {
+  constructor(parentSelector) {
+    this.parent = document.querySelector(parentSelector)
+  }
+
+  addCondition(className, text) {
+    let _newLi = document.createElement('li')
+    _newLi.classList.add(className)
+    _newLi.textContent = text
+    this.parent.appendChild(_newLi)
+  }
+  addOtherCondition(text) {
+    let _newSpan = document.createElement('span')
+    //_newLi.classList.add(className)
+    _newSpan.textContent = text
+    this.parent.appendChild(_newSpan)
+  }
 }
 // const conditions = (humidity, temp, weth, usa) => {
 // let humidityLI = document.createElement('li')
@@ -42,16 +62,16 @@ const main = () => {
         json => {
           weather.textContent = ''
 
-          const parent = document.querySelector('.weather-conditions')
-          addCondition(parent, 'humidity', json.main.humidity)
-          addCondition(parent, 'temp', json.main.temp)
-          addCondition(parent, 'description', json.weather[0].description)
-          addCondition(parent, 'country', json.sys.country)
-          const otherParent = document.querySelector('.other-bits')
-          addCondition(otherParent, 'humidity', json.main.humidity)
-          addCondition(otherParent, 'temp', json.main.temp)
-          addCondition(otherParent, 'description', json.weather[0].description)
-          addCondition(otherParent, 'country', json.sys.country)
+          const weatherList = new WeatherList('.weather-conditions')
+          weatherList.addCondition('humidity', json.main.humidity)
+          weatherList.addCondition('temp', json.main.temp)
+          weatherList.addCondition('description', json.weather[0].description)
+          weatherList.addCondition('country', json.sys.country)
+          // const otherParent = document.querySelector('.other-bits')
+          // addCondition(otherParent, 'humidity', json.main.humidity)
+          // addCondition(otherParent, 'temp', json.main.temp)
+          // addCondition(otherParent, 'description', json.weather[0].description)
+          // addCondition(otherParent, 'country', json.sys.country)
           console.log(json)
         }
       )
