@@ -3,7 +3,7 @@ html {
 }
 
 body {
-  background-image: url(http://www.animatedimages.org/data/media/148/animated-weather-image-0084.gif);
+  /* background-image: url(http://www.animatedimages.org/data/media/148/animated-weather-image-0084.gif); */
   background-color: rgb(240, 179, 88);
   background-size: cover;
   background-repeat: no-repeat;
